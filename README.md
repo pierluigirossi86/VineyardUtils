@@ -7,11 +7,11 @@ VineyardUtils is a Python package designed to assist in handling georeferenced d
 
 You can install VineyardUtils using pip:
 
-bash pip install VineyardUtils
+pip install VineyardUtils
 
 # Usage
 
-python import VineyardUtils
+import VineyardUtils
 
 # Functions
 
