@@ -9,6 +9,8 @@ You can install VineyardUtils using pip:
 
 pip install VineyardUtils
 
+Note: for some functions an external OSGeo package must be installed in the system. 
+
 # Usage
 
 import VineyardUtils
