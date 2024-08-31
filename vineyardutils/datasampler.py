@@ -79,7 +79,7 @@ def get_summary_stats(df, columns=None):
     if columns is None:
         columns = default_columns
 
-    # Ensure the specified columns exist in the DataFrame
+    # Make sure that the specified columns exist in the DataFrame
     for col in columns:
         if col not in df.columns:
             raise ValueError(f"Column '{col}' not found in the DataFrame.")

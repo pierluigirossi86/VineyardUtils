@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os
 import platform
+import pandas as pd
 
 def get_elevation(osgeopath, coordmode, geotiff_filename, lat, lon):
     # Gather values for the gdallocationinfo command string
@@ -121,11 +122,6 @@ def get_elevation_list(osgeopath, sourcename, coordmode, geotiff_filename):
         print(e.stdout)
         return None
 
-
-#result = subprocess.run("C:\\OSGeo4W\\OSGeo4W.bat type coordinates2.txt | C:\\OSGeo4W\\OSGeo4W.bat gdallocationinfo -wgs84 -valonly C:\\OSGeo4W\output.tif", shell=True, capture_output=True, text=True, check=True)
-
-import pandas as pd
-
 def add_elevation_to_df(df,latcolname:str,loncolname:str, osgeopath, coordmode, geotiff_filename, crop:bool=0, type_srs:str="EPSG:4326"):
     #if "Latitudes" not in df:
     #    raise ValueError("Latitudes column not present in dataframe")
@@ -167,7 +163,6 @@ def add_elevation_to_df(df,latcolname:str,loncolname:str, osgeopath, coordmode, 
         outfile= 'TEMPFILEdem_crop.tif'
         crop_geotiff(osgeopath, type_srs, minlongitude, minlatitude, maxlongitude, maxlatitude, geotiff_filename, outfile)
     
-    #df = pd.DataFrame(data)
     list_elevation=get_elevation_list(osgeopath, output_file, coordmode, geotiff_filename)
     df['Elevation']=list_elevation
     if crop==1:

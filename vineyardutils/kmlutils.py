@@ -71,14 +71,11 @@ def find_min_pair(slopes):
     n = len(slopes)
     num_pairs = int(0.2 * n)  # 20% of the list
 
-    # Extract the first and last 20% of the list
     first_20_percent = slopes[:num_pairs]
     last_20_percent = slopes[-num_pairs:]
 
-    # Generate all pairs of the selected portions
     pairs = list(itertools.product(first_20_percent, last_20_percent))
 
-    # Find the pair with the minimum value of the formula
     min_pair = min(pairs, key=lambda pair: calculate_formula(pair[0], pair[1]))
     min_pair_indices = (
         slopes.index(min_pair[0]),
@@ -105,7 +102,6 @@ def remove_duplicate_tuples(index_list):
     return(newlist)
 
 def iterate_check_angle(longitudes, latitudes, tanklevels, min_angle, max_angle, elevation):
-    # Check if the input lists have the same length
     if len(longitudes) != len(latitudes):
         raise ValueError("The length of Longitude and Latitude lists must be the same.")
 
